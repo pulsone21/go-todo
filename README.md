@@ -1,0 +1,3 @@
+# My Todo CLI Tool with golang
+
+this is a learning repo to get the concepts of go....
