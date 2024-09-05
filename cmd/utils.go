@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"os"
 	"text/tabwriter"
 )
@@ -9,9 +8,6 @@ import (
 var w *tabwriter.Writer
 
 func NewTabWriter(c Config) {
-	w = tabwriter.NewWriter(os.Stdout, c.minWidth, c.tabWidth, c.padding, c.padChar, tabwriter.TabIndent)
-}
-
-func Print(msg string) {
-	fmt.Fprintln(w, msg)
+	b := []byte(c.PadChar)
+	w = tabwriter.NewWriter(os.Stdout, c.MinWidth, c.TabWidth, c.Padding, b[0], tabwriter.TabIndent)
 }
