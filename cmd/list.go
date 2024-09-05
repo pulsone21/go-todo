@@ -33,9 +33,9 @@ func list_todos(cmd *cobra.Command, args []string) {
 		fmt.Println("All todos done nice 🎉")
 		return
 	}
-
-	Print(entities.TableHeader())
+	fmt.Fprintln(w, entities.GenerateHeader(TODOS[0], "\b"))
 	for _, v := range TODOS {
-		Print(v.TableFormat())
+		fmt.Fprintln(w, v.ToTable("\b"))
 	}
+	w.Flush()
 }
